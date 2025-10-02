@@ -1,86 +1,83 @@
- Bimbanee's TaskFlow: Focus-Driven Project & Daily Manager
-A modern, personalized task management application designed to help you prioritize based on Focus Time and Energy Level, not just urgency. Get into deep work with the integrated Pomodoro timer and streamline your projects with a visual Kanban workflow.
+# 🚀 Bimbanee's TaskFlow  
+**Focus-Driven Project & Daily Manager**
 
-✨ Features That Boost Your Productivity
-TaskFlow goes beyond a basic to-do list with unique features tailored for focused work sessions:
+Bimbanee's TaskFlow is a **modern task management app** that goes beyond a simple to-do list.  
+It helps you **prioritize work based on Focus Time and Energy Levels**, featuring a **Pomodoro timer, Kanban workflow, and real-time Firebase sync**.  
 
-Feature	Description
-🍅 Integrated Pomodoro Timer	Start a dedicated Focus timer (default 25 min) on any task to encourage deep work. Status automatically updates to "In Progress."
-📊 Focus & Energy Scoring	Prioritize effectively by inputting an estimated Focus Time (min) and an Energy Required rating (High, Medium, or Low) for every task.
-🏷️ Task Segmentation	Easily categorize and filter your work between Project Tasks (for larger goals) and Daily Routines (for recurring habits and appointments).
-📌 Kanban Workflow	Clear, visual project management with columns: To Do, In Progress, and Complete.
-☁️ Real-time Data Persistence	All tasks are securely saved and synchronized across sessions using Google Firebase Firestore.
-🌙 Modern UI/UX	Built with React and Tailwind CSS for a sleek, responsive, dark-themed interface.
+![TaskFlow Preview](./assets/preview.png) <!-- Replace with actual screenshot path -->
 
-Export to Sheets
-💻 Tech Stack
-Category	Technologies
-Frontend	React (Vite)
-Styling	Tailwind CSS
-State Management	React Hooks (useState, useEffect, useCallback, useMemo)
-Database & Auth	Google Firebase (Firestore and Authentication)
+---
 
-Export to Sheets
-⚙️ Installation and Setup
-Follow these steps to get Bimbanee's TaskFlow running locally on your machine.
+## ✨ Features  
 
-Prerequisites
-Node.js (LTS recommended)
+✅ **Integrated Pomodoro Timer** – Start a focus session (default 25 min) directly from any task. Task automatically moves to **In Progress**.  
 
-npm or yarn
+✅ **Focus & Energy Scoring** – Assign each task:  
+- ⏱️ *Focus Time (min)* – estimated completion time  
+- ⚡ *Energy Required* – High, Medium, or Low  
 
-A Google Firebase Project (required for data persistence)
+✅ **Task Segmentation** – Organize tasks as:  
+- 📂 *Project Tasks* (long-term goals)  
+- 🔄 *Daily Routines* (recurring habits & appointments)  
 
-1. Clone & Install Dependencies
-Open your terminal and run:
+✅ **Kanban Workflow** – A clean board with **To Do → In Progress → Complete**.  
 
-Bash
+✅ **Real-time Data Persistence** – Tasks are synced with **Firebase Firestore** across sessions.  
 
-# Clone the repository
+✅ **Personalized Greeting** – Authenticated users see their **name or ID**.  
+
+✅ **Modern Dark UI** – Built with **React + Tailwind CSS**.  
+
+---
+
+## 🖥️ Tech Stack  
+
+- **Frontend:** React (Vite)  
+- **Styling:** Tailwind CSS  
+- **State Management:** React Hooks (useState, useEffect, useCallback, useMemo)  
+- **Database & Auth:** Google Firebase (Firestore & Authentication)  
+
+---
+
+## ⚙️ Installation & Setup  
+
+### 1️⃣ Prerequisites  
+- [Node.js](https://nodejs.org/) (LTS recommended)  
+- npm or yarn  
+- A Firebase Project  
+
+---
+
+### 2️⃣ Clone the Repository & Install Dependencies  
+
+```bash
 git clone <your-repo-url>
 cd bimbanees-taskflow
-
-# Install project dependencies
 npm install
-
-# Install Firebase dependencies
 npm install firebase
-2. Configure Tailwind CSS
-Ensure Tailwind is correctly configured to scan your React components:
+```
+---
 
-Bash
+### 3️⃣ Configure Tailwind CSS
 
+```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
-3. Set up Firebase Configuration
-The application requires your unique Firebase credentials to save and authenticate tasks.
+```
+- Ensure tailwind.config.js scans your React components.
 
-Create a file named .env in the root directory (/bimbanees-taskflow).
+### 4️⃣ Firebase Configuration
+- Create a .env file in the root folder:
 
-Paste your Firebase configuration into the .env file. Crucially, these variables must be prefixed with VITE_ as required by Vite for public variables, and the config should be formatted as a JSON string:
+```. env
+VITE_FIREBASE_CONFIG='{ 
+  "apiKey": "...", 
+  "authDomain": "...", 
+  "projectId": "...", 
+  "storageBucket": "...", 
+  "messagingSenderId": "...", 
+  "appId": "..." 
+}'
+VITE_APP_ID="<YOUR_PROJECT_ID>"
 
-Code snippet
-
-# .env file structure (adapt the values to your actual Firebase config)
-VITE_FIREBASE_CONFIG='{ "apiKey": "...", "authDomain": "...", "projectId": "...", "storageBucket": "...", "messagingSenderId": "...", "appId": "..." }'
-VITE_APP_ID="<YOUR_PROJECT_ID>" 
-# Note: Ensure your TaskFlow code properly reads and parses this config string (e.g., in useFirebaseContext).
-Update Firestore Security Rules: Ensure your Firebase Firestore rules are set to allow authenticated access for data saving to work.
-
-4. Run the Application
-Start the local development server:
-
-Bash
-
-npm run dev
-The application will typically open at http://localhost:5173.
-
-🛠️ Customization
-The core application logic is contained within the src/TaskFlow.jsx file.
-
-Area	How to Customize
-Styling	Adjust colors, fonts (currently Inter), and spacing by modifying Tailwind CSS classes directly within the JSX.
-Pomodoro Timing	The default POMODORO_TIME (25 minutes) and BREAK_TIME (5 minutes) can be modified directly in the PomodoroTimer component constants.
-Task Fields	Add new task properties (e.g., tags, due date) to the TaskForm and update the handleAddTask function to store them in the Firestore document.
-
-Export to Sheets
+```
