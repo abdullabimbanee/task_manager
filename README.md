@@ -4,7 +4,7 @@
 Bimbanee's TaskFlow is a **modern task management app** that goes beyond a simple to-do list.  
 It helps you **prioritize work based on Focus Time and Energy Levels**, featuring a **Pomodoro timer, Kanban workflow, and real-time Firebase sync**.  
 
-![TaskFlow Preview]({https://bimbaneetaskflow.netlify.app/}) <!-- Replace with actual screenshot path -->
+![TaskFlow Preview]([./assets/preview.png]) <!-- Replace with actual screenshot path -->
 
 ---
 
